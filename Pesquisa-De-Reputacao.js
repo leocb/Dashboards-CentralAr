@@ -143,13 +143,13 @@ raBody.appendChild(raRow)
 ebitBody.appendChild(ebitRow)
 
 var styles = document.createElement('style')
-styles.sheet = ".pr table {display: block;font-family: sans-serif;-webkit-font-smoothing: antialiased;font-size: 80%;overflow: auto;width: auto; margin: 0px; border-collapse: collapse; text-align: center; } .pr th { background-color: rgb(112, 196, 105); color: white; font-weight: normal; padding: 10px 15px; text-align: center; } .pr td { background-color: rgb(238, 238, 238); color: rgb(111, 111, 111); padding: 0px 1px; }"
+styles.innerHTML = ".pr table {display: block;font-family: sans-serif;-webkit-font-smoothing: antialiased;font-size: 80%;overflow: auto;width: auto; margin: 0px; border-collapse: collapse; text-align: center; } .pr th { background-color: rgb(112, 196, 105); color: white; font-weight: normal; padding: 10px 15px; text-align: center; } .pr td { background-color: rgb(238, 238, 238); color: rgb(111, 111, 111); padding: 0px 1px; } nav {display: none !important;}"
 raTable.className = "pr"
 ebitTable.className = "pr"
 document.body.innerHTML = ""
-document.body.appendChild(ebitTable)
-document.body.appendChild(raTable)
 document.head.appendChild(styles)
+document.body.appendChild(raTable)
+document.body.appendChild(ebitTable)
 
 function PrintEbit(Nome, Classificacao, Prazo, Compraria, Indicaria) {
     var ebitRow = document.createElement('tr')
