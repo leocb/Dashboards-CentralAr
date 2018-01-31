@@ -44,7 +44,7 @@ the file `Pesquisa-De-Reputacao.js` is made to be imported in a bookmarklet, lik
 ```js
 javascript: (function () {
     var queryReputationScript = document.createElement('script');
-    queryReputationScript.setAttribute('src', 'https://raw.githubusercontent.com/leocb/Dashboards-CentralAr/master/Pesquisa-De-Reputacao.js');
+    queryReputationScript.setAttribute('src', '//rawgithub.com/leocb/Dashboards-CentralAr/master/Pesquisa-De-Reputacao.js');
     document.body.appendChild(queryReputationScript);
 }());
 ```

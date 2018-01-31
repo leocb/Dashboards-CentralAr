@@ -146,9 +146,9 @@ var styles = document.createElement('style')
 styles.sheet = ".pr table {display: block;font-family: sans-serif;-webkit-font-smoothing: antialiased;font-size: 80%;overflow: auto;width: auto; margin: 0px; border-collapse: collapse; text-align: center; } .pr th { background-color: rgb(112, 196, 105); color: white; font-weight: normal; padding: 10px 15px; text-align: center; } .pr td { background-color: rgb(238, 238, 238); color: rgb(111, 111, 111); padding: 0px 1px; }"
 raTable.className = "pr"
 ebitTable.className = "pr"
-document.body.appendChild(raTable)
-document.body.appendChild(ebitTable)
-document.head.appendChild
+document.body.insertBefore(raTable, document.body.firstChild)
+document.body.insertBefore(ebitTable, document.body.firstChild)
+document.head.appendChild(styles)
 
 function PrintEbit(Nome, Classificacao, Prazo, Compraria, Indicaria) {
     var ebitRow = document.createElement('tr')
@@ -242,7 +242,7 @@ function getResultsEbit(urlToGetJson) {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) { //Status OK:
             //Lê o JSON
-            var objJson = JSON.parse(this.responseText)
+            var objJson = JSON.parse(JSON.parse(this.responseText))
             if (objJson.result == true) {
                 PrintEbit(
                     objJson.Data.nome_fantasia,
