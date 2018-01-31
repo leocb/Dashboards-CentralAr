@@ -16,7 +16,7 @@ The dashboards also have a low update rate, querying the servers at regular inte
 
 Serve these files on a simple static file server. I recommend the [Chrome Web Server app](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en) But it will probably be deprecated in no-time due to google ending suport for chrome apps, when that happens, try [firebase hosting](https://firebase.google.com/).
 
-# APIs access
+## APIs access
 
 At the begining of each Dashboard-*.js file is a key string for each of the APIs we access, obiviously you'll need to provide your own keys.
 
@@ -34,3 +34,19 @@ in our case, it goes like this:
 27*24*2 = 1296 requests/Month (+ some requests from other boards)
 ```
 There's probally a more efficient way to use the weather API, but I just don't have the time to look at the docs, feel free to create a PR :)
+
+---
+
+## Query Reputations
+
+the file `Pesquisa-De-Reputacao.js` is made to be imported in a bookmarklet, like this:
+
+```js
+javascript: (function () {
+    var queryReputationScript = document.createElement('script');
+    queryReputationScript.setAttribute('src', 'https://raw.githubusercontent.com/leocb/Dashboards-CentralAr/master/Pesquisa-De-Reputacao.js');
+    document.body.appendChild(queryReputationScript);
+}());
+```
+
+Copy the code above and save it in the `url` parameter of a bookmark, then access `http://www.ebit.com.br` and click on the bookmark
