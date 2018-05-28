@@ -1,12 +1,5 @@
-//Apixu API Key
-var apixuApiKey = "PUT YOUR APIXU KEY HERE";
-
-//GA View ID (Esse numero está disponivel no account explorer do GA: https://ga-dev-tools.appspot.com/account-explorer/)
-var VIEW_ID = 'PUT THE GA VIEW ID HERE';
-
-var gaIntervalInMS = 600000;
-var gaweatherIntervalInMS = 3600000;
-
+﻿//View ID (Esse numero está disponivel no account explorer do GA: https://ga-dev-tools.appspot.com/account-explorer/)
+var VIEW_ID = '8648031';
 var lastRun = new Date();
 
 //Guarda os elementos da pagina em uma estrutura mais facil de acessar
@@ -86,9 +79,6 @@ function city() {
     this.conversion = 0;
     this.revenue = 0;
     this.TKM = 0;
-    this.min = 0;
-    this.current = 0;
-    this.max = 0;
 }
 
 //Atualiza os valores nos elementos da pagina
@@ -155,9 +145,6 @@ function updateDisplay() {
             style: "currency",
             currency: "BRL"
         });
-        element.children[7].innerHTML = Math.round(values.city[i].min) + "° C";
-        element.children[8].innerHTML = Math.round(values.city[i].current) + "° C";
-        element.children[9].innerHTML = Math.round(values.city[i].max) + "° C";
     }
     //Display
     elements.display.updateDate.innerHTML = lastRun.toLocaleString("pt-br");
@@ -220,6 +207,7 @@ function switchClasses(element, isPositive) {
 
 //################## GOOGLE ANALYTICS ####################
 
+
 //Controle de execução, evita rodar consultas na API fora do horario de trabalho
 //GA
 function gaQueryControl() {
@@ -229,23 +217,6 @@ function gaQueryControl() {
         queryReports();
     } else {
         console.log("GA denied");
-    }
-}
-
-//Weather
-function weatherQueryControl() {
-    console.log("Try Weather query at ", new Date().toLocaleString("pt-br"))
-    if (isWorkingHours()) {
-        console.log("OK, running Weather query");
-        for (var i = 0; i < 7; i++) {
-            //força atualização de temperatura se mudar o nome da cidade
-            values.city[i].max = 0;
-            values.city[i].current = 0;
-            values.city[i].min = 0;
-            requestWeather(i);
-        }
-    } else {
-        console.log("Weather denied");
     }
 }
 
@@ -262,15 +233,13 @@ function isWorkingHours() {
 
 //Variaveis de intervalo, caso queria parar manualmente o intervalo de atualização
 var gaInterval;
-var weatherInterval;
 
 // Esconde o botao de log-in e inicia as consultas
 function hideLoginButton() {
     document.getElementById("btnLogin").hidden = true;
 
     gaQueryControl(); //Consulta inicial no GA
-    gaInterval = setInterval(gaQueryControl, gaIntervalInMS); //A cada 10 minutos
-    weatherInterval = setInterval(weatherQueryControl, gaweatherIntervalInMS); //A cada 60 minutos
+    gaInterval = setInterval(gaQueryControl, 600000); //A cada 10 minutos
 }
 
 //Primeiramente, pesquisa no ano aterior e no mes anterior
@@ -419,65 +388,21 @@ function cityResults(response) {
         var dados = response.result.reports[0].data.rows[i];
 
         //Salva a respota do GA nas variaveis
+        values.city[i].name = dados.dimensions[0];
         values.city[i].sessions = eval(dados.metrics[0].values[0]);
         values.city[i].transactions = eval(dados.metrics[0].values[1]);
         values.city[i].conversion = eval(dados.metrics[0].values[1] / dados.metrics[0].values[0]);
         values.city[i].revenue = eval(dados.metrics[0].values[2]);
         values.city[i].TKM = eval(dados.metrics[0].values[2] / dados.metrics[0].values[1]);
 
-        //força atualização de temperatura se mudar o nome da cidade
-        if (values.city[i].name != dados.dimensions[0]) {
-            values.city[i].name = dados.dimensions[0];
-            values.city[i].max = 0;
-            values.city[i].current = 0;
-            values.city[i].min = 0;
-            requestWeather(i);
-        }
-
         //Tenta atualizar os valores na tela
         checkIfCanUpdate();
     }
 }
 
-
-//################## WEATHER DATA ####################
-//pedir a previsao do clima do dia para a cidade especificada pelo index do array de cidades
-function requestWeather(index) {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-
-            //salva os dados do clima nas variaveis
-            weatherData = JSON.parse(this.responseText);
-            values.city[index].min = weatherData.forecast.forecastday[0].day.mintemp_c;
-            values.city[index].current = weatherData.current.temp_c;
-            values.city[index].max = weatherData.forecast.forecastday[0].day.maxtemp_c;
-
-            //Tenta atualizar os valores na tela
-            checkIfCanUpdate();
-        }
-    };
-
-    //Faz a requisição
-    xhttp.open("GET", "http://api.apixu.com/v1/forecast.json?key=" + apixuApiKey + "&q=" + values.city[index].name + ", br&days=1", true);
-    xhttp.send();
-}
-
-
 //Tenta atualizar os valores na tela
 function checkIfCanUpdate() {
     var shouldUpdate = true;
-
-    //Verifica se tem alguma cidade sem o valor de temperatura (que é o ultimo valor a ser coletado)
-    for (var i = 0; i < 7; i++) {
-        if (values.city[i].max == 0 && values.city[i].min == 0) {
-
-            //Se tiver alguma cidade sem o valor, entao ainda nao acabamos de coletar os dados
-            shouldUpdate = false;
-            break;
-        }
-    }
-
     //Se ja coletamos tudo, atualize os valores
     if (shouldUpdate) {
         lastRun = new Date()

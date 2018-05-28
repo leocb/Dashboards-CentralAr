@@ -132,7 +132,7 @@ reclameAquiQueryControl(); //Consulta inicial
 //pedir a previsao do clima do dia para a cidade especificada pelo index do array de cidades
 function requestReclameAqui() {
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
+    xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             //salva os dados do clima na variavel
             var RAData = JSON.parse(this.responseText);

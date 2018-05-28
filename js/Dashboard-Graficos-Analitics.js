@@ -1,9 +1,6 @@
-//View ID (Esse numero está disponivel no account explorer do GA: https://ga-dev-tools.appspot.com/account-explorer/)
-var VIEW_ID = 'PUT THE GA VIEW ID HERE';
-
-var intervalInMS = 600000 //10 minutes
-
-
+//BOoooooraaa
+//BIRL
+//Chave API OpenWeatherMap
 var lastRun = 0
 
 //variavel auxilar para ajudar a montar a estrutura,
@@ -40,6 +37,8 @@ var updateDate = document.getElementById("updateDate")
 
 
 //################## GOOGLE ANALYTICS ####################
+//View ID (Esse numero está disponivel no account explorer do GA: https://ga-dev-tools.appspot.com/account-explorer/)
+var VIEW_ID = '8648031'
 
 //Variaveis de intervalo, caso queria parar manualmente o intervalo de atualização
 var gaInterval
@@ -72,7 +71,7 @@ function hideLoginButton() {
   document.getElementById("btnLogin").hidden = true
 
   gaQueryControl() //Consulta inicial no GA
-  gaInterval = setInterval(gaQueryControl, intervalInMS)
+  gaInterval = setInterval(gaQueryControl, 600000) //A cada 10 minutos
 }
 
 //consulta do ano e dia passado

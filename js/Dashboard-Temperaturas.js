@@ -1,21 +1,12 @@
-//Apixu API Key
+//Chave API OpenWeatherMap
 var apixuApiKey = "";
-
-//This board auto-updates at 7am everyday
-
-//lista de cidades
-var cityList = [
-  "Rio Branco", "Maceio", "Macapa", "Manaus", "Salvador", "Fortaleza",
-  "Brasilia", "Vitoria", "Goiania", "Sao Luís", "Cuiaba", "Campo Grande",
-  "Belo Horizonte", "Belem", "Joao Pessoa", "Curitiba", "Recife", "Teresina",
-  "Janeiro", "Natal", "Porto Alegre", "Porto Velho", "Boa Vista", "Florianopolis",
-  "Sao Paulo", "Aracaju", "Palmas"
-]
-
 var lastRun = new Date();
 
 //valores
 var values = [];
+
+//lista de cidades
+var cityList = ["Rio Branco", "Maceio", "Macapa", "Manaus", "Salvador", "Fortaleza", "Brasilia", "Vitoria", "Goiania", "São Luis", "Cuiaba", "Campo Grande", "Belo Horizonte", "Belem", "Joao Pessoa", "Curitiba", "Recife", "Teresina", "Rio de Janeiro", "Natal", "Porto Alegre", "Porto Velho", "Boa Vista", "Florianopolis", "Sao Paulo", "Aracaju", "Palmas"]
 
 //Estruturas das informações
 function rowInfo() {
@@ -60,7 +51,7 @@ function weatherQueryControl() {
   if (isWorkingHours()) {
     console.log("OK, running Weather query");
     values = [];
-    for (var i = 0; i < cityList.length; i++) {
+    for (var i = 0; i < 27; i++) {
       requestWeather(cityList[i]);
     }
   } else {
@@ -119,10 +110,10 @@ function requestWeather(city) {
       values[index].city = city;
       values[index].maxTodayTemp = weatherData.forecast.forecastday[0].day.maxtemp_c;
       values[index].maxTomorrowTemp = weatherData.forecast.forecastday[1].day.maxtemp_c;
-      values[index].maxWeekTemp = weatherData.forecast.forecastday[7].day.maxtemp_c;
+      values[index].maxWeekTemp = weatherData.forecast.forecastday[6].day.maxtemp_c;
       values[index].minTodayTemp = weatherData.forecast.forecastday[0].day.mintemp_c;
       values[index].minTomorrowTemp = weatherData.forecast.forecastday[1].day.mintemp_c;
-      values[index].minWeekTemp = weatherData.forecast.forecastday[7].day.mintemp_c;
+      values[index].minWeekTemp = weatherData.forecast.forecastday[6].day.mintemp_c;
 
       //console.log(city, weatherData.forecast.forecastday[0].day.maxtemp_c, weatherData.forecast.forecastday[1].day.maxtemp_c, weatherData.forecast.forecastday[7].day.maxtemp_c, weatherData.forecast.forecastday[0].day.mintemp_c, weatherData.forecast.forecastday[1].day.mintemp_c, weatherData.forecast.forecastday[7].day.mintemp_c, checkIfCanUpdate());
       checkIfCanUpdate();
