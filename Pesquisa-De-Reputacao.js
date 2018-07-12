@@ -1,5 +1,4 @@
-﻿
-// Pesquisa de reputação.
+﻿// Pesquisa de reputação.
 
 // Data vars
 var nomesEmpresas = [
@@ -170,6 +169,7 @@ function PrintEbit(Nome, Classificacao, Prazo, Compraria, Indicaria) {
     ebitRow.appendChild(ebitCell)
     ebitBody.appendChild(ebitRow)
 }
+
 function PrintRA(nome,
     r12nRec, r12nResp, r12nota, r12indSol, r12volFazNeg, r12rank,
     r6nRec, r6nResp, r6nota, r6indSol, r6volFazNeg, r6rank
@@ -254,15 +254,15 @@ function getResultsEbit(urlToGetJson) {
                 )
                 nextEbitURL()
             } else {
-                forceNextEbit();//PRÓXIMO!
+                forceNextEbit(); //PRÓXIMO!
             }
         }
         if (this.readyState == 4 && this.status != 200) { //Status Outros:
-            forceNextEbit();//PRÓXIMO!
+            forceNextEbit(); //PRÓXIMO!
         }
     }
     xhttp.ontimeout = function (e) {
-        forceNextEbit();//PRÓXIMO!
+        forceNextEbit(); //PRÓXIMO!
     }
     xhttp.send()
 }
@@ -294,8 +294,16 @@ function getResultsRA(urlToGetJson) {
 
             var nome = objJson.company.companyName
 
+            if (objJson.company.companyIndex6Months) {
+
+            }
+
+            let r12 = false
+            let r6 = false
+
             for (var j = 0; j < objJson.indexes.length; j++) {
                 if (objJson.indexes[j].type == "TWELVE_MONTHS") {
+                    r12 = true
                     var r12nRec = objJson.indexes[j].totalComplains
                     var r12nResp = objJson.indexes[j].totalAnswered
                     var r12nota = objJson.indexes[j].consumerScore
@@ -304,6 +312,7 @@ function getResultsRA(urlToGetJson) {
                     var r12rank = objJson.indexes[j].status
                 }
                 if (objJson.indexes[j].type == "SIX_MONTHS") {
+                    r6 = true
                     var r6nRec = objJson.indexes[j].totalComplains
                     var r6nResp = objJson.indexes[j].totalAnswered
                     var r6nota = objJson.indexes[j].consumerScore
@@ -313,6 +322,24 @@ function getResultsRA(urlToGetJson) {
                 }
             }
 
+            if (r12 === false) {
+                r12nRec = 0
+                r12nResp = 0
+                r12nota = 0
+                r12indSol = 0
+                r12volFazNeg = 0
+                r12rank = "nao encontrado"
+            }
+
+            if (r6 === false) {
+                r6nRec = 0
+                r6nResp = 0
+                r6nota = 0
+                r6indSol = 0
+                r6volFazNeg = 0
+                r6rank = "nao encontrado"
+            }
+
             PrintRA(nome,
                 r12nRec, r12nResp, r12nota, r12indSol, r12volFazNeg, r12rank,
                 r6nRec, r6nResp, r6nota, r6indSol, r6volFazNeg, r6rank
@@ -320,11 +347,11 @@ function getResultsRA(urlToGetJson) {
             nextRaURL()
         }
         if (this.readyState == 4 && this.status != 200) { //Status Outros:
-            forceNextRA();//PRÓXIMO!
+            forceNextRA(); //PRÓXIMO!
         }
     }
     xhttp.ontimeout = function (e) {
-        forceNextRA();//PRÓXIMO!
+        forceNextRA(); //PRÓXIMO!
     }
     xhttp.send()
 }
