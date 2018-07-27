@@ -21,20 +21,20 @@ var nomesEmpresas = [
     "Walmart - MKTP"
 ]
 var urlsEbit = [
-    "http://www.ebit.com.br/reputacao-de-lojas/historico?companyid=7562",
-    "http://www.ebit.com.br/reputacao-de-lojas/historico?companyid=6714",
-    "http://www.ebit.com.br/reputacao-de-lojas/historico?companyid=15595",
-    "http://www.ebit.com.br/reputacao-de-lojas/historico?companyid=7873",
-    "http://www.ebit.com.br/reputacao-de-lojas/historico?companyid=3378",
-    "http://www.ebit.com.br/reputacao-de-lojas/historico?companyid=50989",
-    "http://www.ebit.com.br/reputacao-de-lojas/historico?companyid=54517",
-    "http://www.ebit.com.br/reputacao-de-lojas/historico?companyid=7694",
-    "http://www.ebit.com.br/reputacao-de-lojas/historico?companyid=73870",
-    "http://www.ebit.com.br/reputacao-de-lojas/historico?companyid=568",
-    "http://www.ebit.com.br/reputacao-de-lojas/historico?companyid=552",
-    "http://www.ebit.com.br/reputacao-de-lojas/historico?companyid=566",
-    "http://www.ebit.com.br/reputacao-de-lojas/historico?companyid=2724",
-    "http://www.ebit.com.br/reputacao-de-lojas/historico?companyid=742"
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=7562",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=6714",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=15595",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=7873",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=3378",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=50989",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=54517",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=7694",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=73870",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=568",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=552",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=566",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=2724",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=742"
 ]
 var urlsRA = [
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/11128/compare",
