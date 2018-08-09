@@ -18,7 +18,21 @@ var nomesEmpresas = [
     "Walmart",
     "Americanas - MKTP",
     "Ponto Frio - MKTP",
-    "Walmart - MKTP"
+    "Walmart - MKTP",
+    "Ricardo Eletro - loja Fisica",
+    "Ricardo Eletro - loja Online",
+    "Magazine Luiza - Loja online",
+    "Magazine Luiza - loja Fisica",
+    "Submarino Marketplace",
+    "Shoptime Marketplace",
+    "Extra.com Marketplace",
+    "Casas Bahia Marketplace",
+    "Mercado Livre",
+    "MadeiraMadeira",
+    "Amazon",
+    "Zoom.com.br",
+    "Carrefour - Loja Fisica",
+    "Carrefour - Loja Online"
 ]
 var urlsEbit = [
     "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=7562",
@@ -53,7 +67,21 @@ var urlsRA = [
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/11018/compare",
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/97826/compare",
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/98556/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/100761/compare"
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/100761/compare",
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/2826/compare",
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/10708/compare",
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/29266/compare",
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/637/compare",
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/97827/compare",
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/97828/compare",
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/98553/compare",
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/98555/compare",
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/928/compare",
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/19770/compare",
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/7936/compare",
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/37125/compare",
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/819/compare",
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/18543/compare"
 ]
 
 // Create RA table.
@@ -295,21 +323,21 @@ function getResultsRA(urlToGetJson) {
             for (var j = 0; j < objJson.indexes.length; j++) {
                 if (objJson.indexes[j].type == "TWELVE_MONTHS") {
                     r12 = true
-                    var r12nRec = objJson.indexes[j].totalComplains
-                    var r12nResp = objJson.indexes[j].totalAnswered
-                    var r12nota = objJson.indexes[j].consumerScore
-                    var r12indSol = objJson.indexes[j].solvedPercentual
-                    var r12volFazNeg = objJson.indexes[j].dealAgainPercentual
-                    var r12rank = objJson.indexes[j].status
+                    var r12nRec = objJson.indexes[j].totalComplains || 0
+                    var r12nResp = objJson.indexes[j].totalAnswered || 0
+                    var r12nota = objJson.indexes[j].consumerScore || 0
+                    var r12indSol = objJson.indexes[j].solvedPercentual || 0
+                    var r12volFazNeg = objJson.indexes[j].dealAgainPercentual || 0
+                    var r12rank = objJson.indexes[j].status || 0
                 }
                 if (objJson.indexes[j].type == "SIX_MONTHS") {
                     r6 = true
-                    var r6nRec = objJson.indexes[j].totalComplains
-                    var r6nResp = objJson.indexes[j].totalAnswered
-                    var r6nota = objJson.indexes[j].consumerScore
-                    var r6indSol = objJson.indexes[j].solvedPercentual
-                    var r6volFazNeg = objJson.indexes[j].dealAgainPercentual
-                    var r6rank = objJson.indexes[j].status
+                    var r6nRec = objJson.indexes[j].totalComplains || 0
+                    var r6nResp = objJson.indexes[j].totalAnswered || 0
+                    var r6nota = objJson.indexes[j].consumerScore || 0
+                    var r6indSol = objJson.indexes[j].solvedPercentual || 0
+                    var r6volFazNeg = objJson.indexes[j].dealAgainPercentual || 0
+                    var r6rank = objJson.indexes[j].status || 0
                 }
             }
 
