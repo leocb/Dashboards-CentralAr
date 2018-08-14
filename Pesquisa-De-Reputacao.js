@@ -1,81 +1,61 @@
 ﻿// Pesquisa de reputação.
-
-// Data vars
-var nomesEmpresas = [
-    "CentralAr.com",
-    "A.Dias",
-    "Amazon",
-    "Americanas",
-    "Americanas - MKTP",
-    "Carrefour - Loja Fisica",
-    "Carrefour - Loja Online",
-    "Casas Bahia Marketplace",
-    "Extra.com Marketplace",
-    "Frigelar",
-    "FrioPeças",
-    "Magazine Luiza - loja Fisica",
-    "Magazine Luiza - Loja online",
-    "Mercado Livre",
-    "MultiAr",
-    "PoloAr",
-    "Ponto Frio",
-    "Ponto Frio - MKTP",
-    "Refrigeração Dufrio",
-    "Ricardo Eletro - loja Fisica",
-    "Ricardo Eletro - loja Online",
-    "Shoptime Marketplace",
-    "StrAr",
-    "Submarino Marketplace",
-    "Walmart",
-    "Walmart - MKTP",
-    "Web Continental",
-    "Zoom.com.br"
-]
-var urlsEbit = [
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=7562",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=6714",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=15595",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=7873",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=3378",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=50989",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=54517",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=7694",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=73870",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=568",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=552",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=566",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=2724",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=742"
-]
+// Reclame Aqui
 var urlsRA = [
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/11128/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/11399/compare",
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/7936/compare",
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/6446/compare",
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/97826/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/819/compare",
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/18543/compare",
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/11871/compare",
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/98555/compare",
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/8789/compare",
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/98553/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/24125/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/7016/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/637/compare",
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/29266/compare",
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/928/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/15106/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/10620/compare",
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/14089/compare",
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/98556/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/45442/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/2826/compare",
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/10708/compare",
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/1634/compare",
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/97828/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/15937/compare",
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/647/compare",
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/97827/compare",
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/11018/compare",
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/100761/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/12163/compare",
     "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/37125/compare"
+]
+
+// Ebit
+var nomesEmpresasEbit = [
+    "CentralAr.com",
+    "Amazon",
+    "Americanas",
+    "Carrefour",
+    "Casas Bahia",
+    "Extra.com",
+    "Magazine Luiza",
+    "Mercado Livre",
+    "Ponto Frio",
+    "Ricardo Eletro",
+    "Shoptime",
+    "Submarino",
+    "Walmart",
+    "Zoom"
+]
+var urlsEbit = [
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=7562",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=66958",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=568",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=10581",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=740",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=2043",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=552",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=566",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=3556",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=637",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=715",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=742",
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid="
 ]
 
 // Create RA table.
@@ -245,7 +225,7 @@ function nextEbitURL() {
 }
 
 function forceNextEbit() {
-    PrintEbit(nomesEmpresas[i], "", 0, 0, 0)
+    PrintEbit(nomesEmpresasEbit[i], "", 0, 0, 0)
     nextEbitURL()
 }
 
@@ -292,7 +272,7 @@ function nextRaURL() {
 }
 
 function forceNextRA() {
-    PrintRA(nomesEmpresas[i], "", "", "", "", "", "", "", "", "", "", "", "")
+    PrintRA(nomesEmpresasEbit[i], "", "", "", "", "", "", "", "", "", "", "", "")
     nextRaURL()
 }
 
