@@ -1,32 +1,54 @@
 ﻿// Pesquisa de reputação.
 // Reclame Aqui
 var urlsRA = [
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/11128/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/7936/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/6446/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/97826/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/18543/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/11871/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/98555/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/8789/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/98553/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/29266/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/928/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/14089/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/98556/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/10708/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/1634/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/97828/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/647/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/97827/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/11018/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/100761/compare",
-    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/37125/compare"
+    // Refrigeração
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/11128/compare", // CentralAr.com
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/11399/compare", // A.Dias
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/24125/compare", // Frigelar
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/7016/compare", // Frio peças
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/15106/compare", // Leveros
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/10620/compare", // PoloAr
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/45442/compare", // DuFrio
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/15937/compare", // STR
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/12163/compare", // Web Continental
+
+    // Outros e-commerces
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/7936/compare", // Amazon
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/6446/compare", // Americanas.com - Loja Online
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/97826/compare", // Americanas Marketplace
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/18543/compare", // Carrefour - Loja On Line
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/11871/compare", // Casas Bahia - Loja Online
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/98555/compare", // Casas Bahia - Marketplace
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/8789/compare", // Extra.com.br
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/98553/compare", // Extra.com.br - Marketplace
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/29266/compare", // Magazine Luiza - Loja Online
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/928/compare", // Mercado Livre
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/14089/compare", // Ponto Frio - Loja Online
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/98556/compare", // Ponto Frio - Marketplace
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/10708/compare", // Ricardo Eletro - Loja Online
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/1634/compare", // Shoptime
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/97828/compare", // Shoptime Marketplace
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/647/compare", // Submarino
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/97827/compare", // Submarino Marketplace
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/11018/compare", // WalMart - Loja Online
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/100761/compare", // WalMart - Marketplace
+    "https://iosite.reclameaqui.com.br/raichu-io-site-0.0.1-SNAPSHOT/company/37125/compare" // Zoom.com.br
 ]
 
 // Ebit
 var nomesEmpresasEbit = [
+    // Refrigeração
     "CentralAr.com",
+    "A.Dias",
+    "Frigelar",
+    "Frio peças",
+    "Leveros",
+    "PoloAr",
+    "DuFrio",
+    "STR",
+    "Web Continental",
+
+    // Outros e-commerces
     "Amazon",
     "Americanas",
     "Carrefour",
@@ -42,20 +64,31 @@ var nomesEmpresasEbit = [
     "Zoom"
 ]
 var urlsEbit = [
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=7562",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=66958",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=568",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=10581",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=740",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=2043",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=552",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=566",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=3556",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=637",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=715",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=742",
-    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid="
+    // Refrigeração
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=7562", // CentralAr.com
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=7873", // A.Dias
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=73870", // Frigelar
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=50989", // Frio peças
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=6714", // Leveros
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=3378", // PoloAr
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=54517", // DuFrio
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=15595", // STR
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=7694", // Web Continental
+
+    // Outros e-commerces
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=66958", // Amazon
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=568", // Americanas
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=10581", // Carrefour
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=740", // Casas Bahia
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=2043", // Extra.com
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=552", // Magazine Luiza
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=", // Mercado Livre
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=566", // Ponto Frio
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=3556", // Ricardo Eletro
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=637", // Shoptime
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=715", // Submarino
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=742", // Walmart
+    "//www.ebit.com.br/reputacao-de-lojas/historico?companyid=" // Zoom
 ]
 
 // Create RA table.
@@ -272,7 +305,7 @@ function nextRaURL() {
 }
 
 function forceNextRA() {
-    PrintRA(nomesEmpresasEbit[i], "", "", "", "", "", "", "", "", "", "", "", "")
+    PrintRA("Erro", "", "", "", "", "", "", "", "", "", "", "", "")
     nextRaURL()
 }
 
